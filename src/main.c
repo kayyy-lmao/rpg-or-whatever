@@ -1,4 +1,4 @@
-#include "rpg.h"
+#include "blocks.h"
 
 int main(void)
 {
@@ -14,11 +14,10 @@ int main(void)
 	camera.fovy = 45.0f;
 	camera.projection = CAMERA_PERSPECTIVE;
 
-	Model model = LoadModel(MODEL_BLOCK_GREEN);
-	Texture2D texture = LoadTexture(TEXTURE_BLOCK_GREEN);
-	SetMaterialTexture(&model.materials[0], MATERIAL_MAP_DIFFUSE, texture);
+	InitBlocks();
 
-	Vector3 position = { 0.0f, 0.0f, 0.0f };
+	Block *block = NewBlock(BLOCK_GREEN);
+	block->position = (Vector3){ 0.0f, 0.0f, 0.0f };
 
 	DisableCursor();
 	SetTargetFPS(60);
@@ -32,15 +31,14 @@ int main(void)
 			ClearBackground(RAYWHITE);
 
 			BeginMode3D(camera);
-				DrawModel(model, position, 1.0f, WHITE);
+				DrawBlock(block);
 				DrawGrid(10, 1.0f);
 			EndMode3D();
 
 		EndDrawing();
 	}
 
-	UnloadTexture(texture);
-	UnloadModel(model);
+	DestroyBlock(block);
 	CloseWindow();
 
 	return 0;
