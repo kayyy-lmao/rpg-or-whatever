@@ -41,7 +41,15 @@ int main(void)
 	
 	for (int x = 0; x < WORLD_SIZE_X; x++) {
 		for (int z = 0; z < WORLD_SIZE_Y; z++) {
-			block = NewBlock(BLOCK_GREEN);
+			block = NewBlock(BLOCK_GRASS);
+			AddBlockToWorld(world, block, x, 0, z);
+		}
+	}
+
+	// add some water as a test.
+	for (int x = 20; x < 40; x++) {
+		for (int z = 30; z < 60; z++) {
+			block = NewBlock(BLOCK_WATER);
 			AddBlockToWorld(world, block, x, 0, z);
 		}
 	}

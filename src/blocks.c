@@ -8,13 +8,17 @@ Texture blockTextures[NUM_BLOCKS];
 
 void InitBlocks()
 {
-	blockModels[BLOCK_GREEN] = LoadModel(MODEL_BLOCK_GREEN);
-	blockTextures[BLOCK_GREEN] = LoadTexture(TEXTURE_BLOCK_GREEN);
-	SetMaterialTexture(&blockModels[BLOCK_GREEN].materials[0], MATERIAL_MAP_DIFFUSE, blockTextures[BLOCK_GREEN]);
+	blockModels[BLOCK_GRASS] = LoadModel(MODEL_BLOCK_GRASS);
+	blockTextures[BLOCK_GRASS] = LoadTexture(TEXTURE_BLOCK_GRASS);
+	SetMaterialTexture(&blockModels[BLOCK_GRASS].materials[0], MATERIAL_MAP_DIFFUSE, blockTextures[BLOCK_GRASS]);
+
+	blockModels[BLOCK_WATER] = LoadModel(MODEL_BLOCK_WATER);
+	blockTextures[BLOCK_WATER] = LoadTexture(TEXTURE_BLOCK_WATER);
+	SetMaterialTexture(&blockModels[BLOCK_WATER].materials[0], MATERIAL_MAP_DIFFUSE, blockTextures[BLOCK_WATER]);
 
 	// shouldn't ever be drawn
-	blockModels[BLOCK_INVALID] = blockModels[BLOCK_GREEN];
-	blockTextures[BLOCK_INVALID] = blockTextures[BLOCK_GREEN];
+	blockModels[BLOCK_INVALID] = blockModels[BLOCK_GRASS];
+	blockTextures[BLOCK_INVALID] = blockTextures[BLOCK_GRASS];
 }
 
 void AddBlockToWorld(World *world, Block *block, int x, int y, int z)

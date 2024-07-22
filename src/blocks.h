@@ -6,14 +6,18 @@
 
 #define BLOCKS_PATH MODELS_PATH "blocks/"
 
-#define MODEL_BLOCK_GREEN BLOCKS_PATH "green/blockGreen.obj"
-#define TEXTURE_BLOCK_GREEN BLOCKS_PATH "green/blockGreen.png"
+#define MODEL_BLOCK_GRASS BLOCKS_PATH "block.obj"
+#define TEXTURE_BLOCK_GRASS BLOCKS_PATH "grass.png"
+
+#define MODEL_BLOCK_WATER BLOCKS_PATH "block.obj"
+#define TEXTURE_BLOCK_WATER BLOCKS_PATH "water.png"
 
 #define BLOCK_SIZE 2.0f;
 
 typedef enum {
 	BLOCK_INVALID,
-	BLOCK_GREEN,
+	BLOCK_GRASS,
+	BLOCK_WATER,
 	NUM_BLOCKS
 } BlockTypes;
 
