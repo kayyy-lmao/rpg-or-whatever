@@ -4,9 +4,9 @@
 #include <raylib.h>
 #include <stdlib.h>
 
-#define WORLD_SIZE_X 16
-#define WORLD_SIZE_Y 16
-#define WORLD_SIZE_Z 16
+#define WORLD_SIZE_X 64
+#define WORLD_SIZE_Y 64
+#define WORLD_SIZE_Z 64
 
 typedef struct World {
 	Block ****blocks;
