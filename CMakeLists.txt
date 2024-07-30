@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(rpg)
+project(rpg_or_whatever)
 
 find_package(raylib 3.0 REQUIRED) # Requires at least version 3.0
 
@@ -12,6 +12,8 @@ add_executable(${PROJECT_NAME}
     src/blocks.c
     src/world.h
     src/world.c
+    src/entity.h
+    src/entity.c
 )
 
 target_link_libraries(${PROJECT_NAME} raylib)
