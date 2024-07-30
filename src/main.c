@@ -1,5 +1,6 @@
 #include "blocks.h"
 #include "world.h"
+#include "entity.h"
 #include <raylib.h>
 #include <raymath.h>
 
@@ -32,6 +33,7 @@ int main(void)
 	float beta       = 0.0;
 
 	InitBlocks();
+	InitEntities();
 
 	DisableCursor();
 	SetTargetFPS(60);
@@ -54,9 +56,15 @@ int main(void)
 		}
 	}
 
+	//player stuff
+	
+	Entity *player = NewEntity(ENTITY_PLAYER);
+	SetEntityState(player, ENTITY_STATE_WALK);
+
 	while (!WindowShouldClose())
 	{
-		float dt = GetFrameTime();
+	UpdateEntity(player);
+	float dt = GetFrameTime();
 
 		
         // Camera PRO usage example (EXPERIMENTAL)
@@ -85,6 +93,7 @@ int main(void)
 
 			BeginMode3D(camera);
 				DrawWorld(world, worldPosition);
+				DrawEntity(player, Vector3Zero());
 				// DrawGrid(100, 1.0f);
 			EndMode3D();
 
